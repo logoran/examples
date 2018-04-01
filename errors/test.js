@@ -4,15 +4,15 @@ const server = app.listen();
 const request = require('supertest').agent(server);
 
 describe('Errors', function() {
-  after(function() {
+  afterAll(function() {
     server.close();
   });
 
   it('should catch the error', function(done) {
     request
-    .get('/')
-    .expect(500)
-    .expect('Content-Type', /text\/html/, done);
+      .get('/')
+      .expect(500)
+      .expect('Content-Type', /text\/html/, done);
   });
 
   it('should emit the error on app', function(done) {
@@ -23,7 +23,7 @@ describe('Errors', function() {
     });
 
     request
-    .get('/')
-    .end(function() {});
+      .get('/')
+      .end(function() {});
   });
 });

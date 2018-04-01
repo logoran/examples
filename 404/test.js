@@ -3,7 +3,7 @@ const server = app.listen();
 const request = require('supertest').agent(server);
 
 describe('404', function() {
-  after(function() {
+  afterAll(function() {
     server.close();
   });
 

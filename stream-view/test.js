@@ -4,20 +4,16 @@ const server = app.listen();
 const request = require('supertest').agent(server);
 
 describe('Stream View', function() {
-  after(function() {
+  afterAll(function() {
     server.close();
   });
 
   it('GET /', function(done) {
     request
-    .get('/')
-    .expect(200, function(err, res) {
-      if (err) return done(err);
-
-      res.should.be.html;
-      res.text.should.include('<title>Hello World</title>');
-      res.text.should.include('<p>Hello World</p>');
-      done();
-    });
+      .get('/')
+      .expect(200)
+      .expect('Content-Type', 'text/html; charset=utf-8')
+      .expect(/<title>Hello World<\/title>/)
+      .expect(/<p>Hello World<\/p>/, done);
   });
 });

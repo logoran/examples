@@ -29,26 +29,26 @@ const body = [
 ].join('\r\n');
 
 describe('Multipart Files', function() {
-  after(function() {
+  afterAll(function() {
     server.close();
   });
 
   it('should store all the files', function(done) {
     request
-    .post('/')
-    .set('Content-Type', ct)
-    .send(body)
-    .expect(200)
-    .end(function(err, res) {
-      if (err) return done(err);
-
-      const files = res.body;
-      files.should.have.length(2);
-      fs.stat(files[0], function(err) {
+      .post('/')
+      .set('Content-Type', ct)
+      .send(body)
+      .expect(200)
+      .end(function(err, res) {
         if (err) return done(err);
 
-        fs.stat(files[1], done);
+        const files = res.body;
+        files.should.have.length(2);
+        fs.stat(files[0], function(err) {
+          if (err) return done(err);
+
+          fs.stat(files[1], done);
+        });
       });
-    });
   });
 });

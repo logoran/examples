@@ -3,7 +3,7 @@ const server = app.listen();
 const request = require('supertest').agent(server);
 
 describe('Cookies Views', function() {
-  after(function() {
+  afterAll(function() {
     server.close();
   });
 
@@ -11,10 +11,10 @@ describe('Cookies Views', function() {
     describe('on iteration #' + i, function() {
       it('should set the views as a cookie and as the body', function(done) {
         request
-        .get('/')
-        .expect(200)
-        .expect('Set-Cookie', new RegExp('view=' + i))
-        .expect(i + ' views', done);
+          .get('/')
+          .expect(200)
+          .expect('Set-Cookie', new RegExp('view=' + i))
+          .expect(i + ' views', done);
       });
     });
   });

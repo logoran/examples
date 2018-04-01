@@ -3,7 +3,7 @@ const server = app.listen();
 const request = require('supertest').agent(server);
 
 describe('Virtual Host', function() {
-  after(function() {
+  afterAll(function() {
     server.close();
   });
 
@@ -11,18 +11,18 @@ describe('Virtual Host', function() {
     describe('when GET /', function() {
       it('should say "Hello from www app"', function(done) {
         request
-        .get('/')
-        .set('Host', 'www.example.com')
-        .expect(200)
-        .expect('Hello from www app', done);
+          .get('/')
+          .set('Host', 'www.example.com')
+          .expect(200)
+          .expect('Hello from www app', done);
       });
 
       it('should set X-Custom', function(done) {
         request
-        .get('/')
-        .set('Host', 'www.example.com')
-        .expect('X-Custom', 'Dub Dub Dub App')
-        .expect(200, done);
+          .get('/')
+          .set('Host', 'www.example.com')
+          .expect('X-Custom', 'Dub Dub Dub App')
+          .expect(200, done);
       });
     });
 
@@ -47,9 +47,9 @@ describe('Virtual Host', function() {
     describe('when not GET /', function() {
       it('should 404', function(done) {
         request
-        .get('/aklsjdf')
-        .set('Host', 'example.com')
-        .expect(404, done);
+          .get('/aklsjdf')
+          .set('Host', 'example.com')
+          .expect(404, done);
       });
     });
   });
@@ -57,18 +57,18 @@ describe('Virtual Host', function() {
     describe('when GET /', function() {
       it('should say "Howzit? From bar middleware bundle"', function(done) {
         request
-        .get('/')
-        .set('Host', 'bar.example.com')
-        .expect(200)
-        .expect('Howzit? From bar middleware bundle', done);
+          .get('/')
+          .set('Host', 'bar.example.com')
+          .expect(200)
+          .expect('Howzit? From bar middleware bundle', done);
       });
 
       it('should set X-Response-Time', function(done) {
         request
-        .get('/')
-        .set('Host', 'bar.example.com')
-        .expect('X-Response-Time', /ms$/)
-        .expect(200, done);
+          .get('/')
+          .set('Host', 'bar.example.com')
+          .expect('X-Response-Time', /ms$/)
+          .expect(200, done);
       });
     });
 

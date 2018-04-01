@@ -4,61 +4,47 @@ const server = app.listen();
 const request = require('supertest').agent(server);
 
 describe('Blog', function() {
-  after(function() {
+  afterAll(function() {
     server.close();
   });
 
   describe('GET /', function() {
     it('should see title "Posts"', function(done) {
       request
-      .get('/')
-      .expect(200, function(err, res) {
-        if (err) return done(err);
-        res.should.be.html;
-        res.text.should.include('<title>Posts</title>');
-        done();
-      });
+        .get('/')
+        .expect(200)
+        .expect('Content-Type', 'text/html; charset=utf-8')
+        .expect(/<title>Posts<\/title>/, done);
     });
 
     it('should see 0 post', function(done) {
       request
-      .get('/')
-      .expect(200, function(err, res) {
-        if (err) return done(err);
-
-        res.should.be.html;
-        res.text.should.include('<p>You have <strong>0</strong> posts!</p>');
-        done();
-      });
+        .get('/')
+        .expect(200)
+        .expect('Content-Type', 'text/html; charset=utf-8')
+        .expect(/<p>You have <strong>0<\/strong> posts!<\/p>/, done);
     });
   });
 
   describe('POST /post/new', function() {
     it('should create post and redirect to /', function(done) {
       request
-      .post('/post')
-      .send({title: 'Title', body: 'Contents'})
-      .end(function(err, res) {
-        if (err) return done(err);
-
-        res.header.location.should.be.equal('/');
-        done();
-      });
+        .post('/post')
+        .send({title: 'Title', body: 'Contents'})
+        .expect(302)
+        .expect('Content-Type', 'text/html; charset=utf-8')
+        .expect('Location', '/', done);
     });
   });
 
   describe('GET /post/0', function() {
     it('should see post', function(done) {
       request
-      .get('/post/0')
-      .expect(200, function(err, res) {
-        if (err) return done(err);
-
-        res.should.be.html;
-        res.text.should.include('<h1>Title</h1>');
-        res.text.should.include('<p>Contents</p>');
-        done();
-      });
+        .get('/post/0')
+        .expect(200)
+        .expect('Content-Type', 'text/html; charset=utf-8')
+        .expect(/<h1>Title<\/h1>/)
+        .expect(/<p>Contents<\/p>/, done);
     });
   });
 });
