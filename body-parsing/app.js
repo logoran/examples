@@ -1,8 +1,8 @@
 
-const Koa = require('koa');
+const Logoran = require('logoran');
 const koaBody = require('koa-body');
 
-const app = module.exports = new Koa();
+const app = module.exports = new Logoran();
 
 app.use(koaBody({
   jsonLimit: '1kb'

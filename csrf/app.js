@@ -1,10 +1,10 @@
-const Koa = require('koa');
+const Logoran = require('logoran');
 const koaBody = require('koa-body');
 const session = require('koa-session');
 const CSRF = require('koa-csrf');
-const router = require('koa-router')();
+const router = require('logoran-router')();
 
-const app = module.exports = new Koa();
+const app = module.exports = new Logoran();
 
 /**
  * csrf need session

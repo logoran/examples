@@ -1,7 +1,7 @@
-const Koa = require('koa');
+const Logoran = require('logoran');
 const auth = require('koa-basic-auth');
 
-const app = module.exports = new Koa();
+const app = module.exports = new Logoran();
 
 // custom 401 handling
 

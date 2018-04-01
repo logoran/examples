@@ -1,7 +1,7 @@
 /**
  * Each `app.use()` only accepts a single generator function.
  * If you want to combine multiple generator functions into a single one,
- * you can use `koa-compose` to do so.
+ * you can use `logoran-compose` to do so.
  * This allows you to use `app.use()` only once.
  * Your code will end up looking something like:
  *
@@ -12,9 +12,9 @@
  *   ]))
 */
 
-const compose = require('koa-compose');
-const Koa = require('koa');
-const app = module.exports = new Koa();
+const compose = require('logoran-compose');
+const Logoran = require('logoran');
+const app = module.exports = new Logoran();
 
 // x-response-time
 

@@ -7,7 +7,7 @@ describe('Virtual Host', function() {
     server.close();
   });
 
-  describe('www subdomain koa app', function() {
+  describe('www subdomain logoran app', function() {
     describe('when GET /', function() {
       it('should say "Hello from www app"', function(done) {
         request

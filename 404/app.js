@@ -1,10 +1,10 @@
-const Koa = require('koa');
+const Logoran = require('logoran');
 
-const app = module.exports = new Koa();
+const app = module.exports = new Logoran();
 
 app.use(async function pageNotFound(ctx) {
   // we need to explicitly set 404 here
-  // so that koa doesn't assign 200 on body=
+  // so that logoran doesn't assign 200 on body=
   ctx.status = 404;
 
   switch (ctx.accepts('html', 'json')) {

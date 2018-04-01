@@ -3,11 +3,11 @@
  * Only uses JSON for simplicity.
  */
 
-const Koa = require('koa');
+const Logoran = require('logoran');
 const rawBody = require('raw-body');
 const session = require('koa-session');
 
-const app = module.exports = new Koa();
+const app = module.exports = new Logoran();
 
 // required for signed cookie sessions
 app.keys = ['key1', 'key2'];

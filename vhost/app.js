@@ -1,17 +1,17 @@
-const compose = require('koa-compose');
-const Koa = require('koa');
-const app = module.exports = new Koa();
+const compose = require('logoran-compose');
+const Logoran = require('logoran');
+const app = module.exports = new Logoran();
 
 // virtual host apps
 
-const wwwSubdomain = composer(require('./apps/koa'));
+const wwwSubdomain = composer(require('./apps/logoran'));
 const barSubdomain = composer(require('./apps/array'));
 
-// compose koa apps and middleware arrays
+// compose logoran apps and middleware arrays
 // to be used later in our host switch generator
 
 function composer(app) {
-  const middleware = app instanceof Koa ? app.middleware : app;
+  const middleware = app instanceof Logoran ? app.middleware : app;
   return compose(middleware);
 }
 

@@ -1,8 +1,8 @@
-const Koa = require('koa');
+const Logoran = require('logoran');
 
-// koa app
+// logoran app
 
-const app = new Koa();
+const app = new Logoran();
 
 app.use(async function(ctx, next) {
   await next();

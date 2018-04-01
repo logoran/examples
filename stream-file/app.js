@@ -1,6 +1,6 @@
-const Koa = require('koa');
+const Logoran = require('logoran');
 const fs = require('fs');
-const app = module.exports = new Koa();
+const app = module.exports = new Logoran();
 const path = require('path');
 const extname = path.extname;
 

@@ -1,6 +1,6 @@
-# Koa Examples
+# Logoran Examples
 
-  A repository containing small examples to illustrate the use of Koa
+  A repository containing small examples to illustrate the use of Logoran
   for creating web applications and other HTTP servers.
 
 # Running tests

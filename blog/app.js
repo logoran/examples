@@ -1,11 +1,11 @@
 
 const render = require('./lib/render');
-const logger = require('koa-logger');
-const router = require('koa-router')();
+const logger = require('logoran-logger');
+const router = require('logoran-router')();
 const koaBody = require('koa-body');
 
-const Koa = require('koa');
-const app = module.exports = new Koa();
+const Logoran = require('logoran');
+const app = module.exports = new Logoran();
 
 // "database"
 

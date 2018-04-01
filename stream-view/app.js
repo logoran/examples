@@ -1,8 +1,8 @@
-const Koa = require('koa');
+const Logoran = require('logoran');
 
 const View = require('./view');
 
-const app = module.exports = new Koa();
+const app = module.exports = new Logoran();
 
 app.use(async function(ctx) {
   ctx.type = 'html';

@@ -1,5 +1,5 @@
-const Koa = require('koa');
-const app = module.exports = new Koa();
+const Logoran = require('logoran');
+const app = module.exports = new Logoran();
 
 // look ma, error propagation!
 

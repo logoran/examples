@@ -1,4 +1,4 @@
-// rather than koa apps we can also use array
+// rather than logoran apps we can also use array
 // bundles of middleware to the same effect.
 
 async function responseTime(ctx, next) {

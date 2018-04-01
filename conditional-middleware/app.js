@@ -1,6 +1,6 @@
-const logger = require('koa-logger');
-const Koa = require('koa');
-const app = new Koa();
+const logger = require('logoran-logger');
+const Logoran = require('logoran');
+const app = new Logoran();
 
 // passing any middleware to this middleware
 // will make it conditional, and will not be used

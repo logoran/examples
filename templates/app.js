@@ -1,7 +1,7 @@
 const path = require('path');
 const views = require('koa-views');
-const Koa = require('koa');
-const app = module.exports = new Koa();
+const Logoran = require('logoran');
+const app = module.exports = new Logoran();
 
 // setup views, appending .ejs
 // when no extname is given to render()

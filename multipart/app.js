@@ -7,11 +7,11 @@
 
 const os = require('os');
 const path = require('path');
-const Koa = require('koa');
+const Logoran = require('logoran');
 const fs = require('fs-promise');
 const koaBody = require('koa-body');
 
-const app = module.exports = new Koa();
+const app = module.exports = new Logoran();
 
 app.use(koaBody({ multipart: true }));
 

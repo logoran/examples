@@ -2,7 +2,7 @@ const app = require('./app');
 const server = app.listen();
 const request = require('supertest').agent(server);
 
-describe('Koa Basic Auth', function() {
+describe('Logoran Basic Auth', function() {
   after(function() {
     server.close();
   });

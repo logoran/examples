@@ -3,8 +3,8 @@
  * both as a cookie and as a response string.
  */
 
-const Koa = require('koa');
-const app = module.exports = new Koa();
+const Logoran = require('logoran');
+const app = module.exports = new Logoran();
 
 app.use(async function(ctx) {
   const n = ~~ctx.cookies.get('view') + 1;

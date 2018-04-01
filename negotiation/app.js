@@ -1,6 +1,6 @@
 
-const Koa = require('koa');
-const app = module.exports = new Koa();
+const Logoran = require('logoran');
+const app = module.exports = new Logoran();
 
 const tobi = {
   _id: '123',
@@ -38,7 +38,7 @@ app.use(async function(ctx, next) {
   // not acceptable
   if (type === false) ctx.throw(406);
 
-  // accepts json, koa handles this for us,
+  // accepts json, logoran handles this for us,
   // so just return
   if (type === 'json') return;
 

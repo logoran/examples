@@ -3,12 +3,12 @@
  * Module dependencies.
  */
 
-const logger = require('koa-logger');
+const logger = require('logoran-logger');
 const serve = require('koa-static');
 const koaBody = require('koa-body');
-const Koa = require('koa');
+const Logoran = require('logoran');
 const fs = require('fs');
-const app = new Koa();
+const app = new Logoran();
 const os = require('os');
 const path = require('path');
 
