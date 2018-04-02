@@ -8,9 +8,10 @@ const serve = require('koa-static');
 const koaBody = require('koa-body');
 const Logoran = require('logoran');
 const fs = require('fs');
-const app = new Logoran();
 const os = require('os');
 const path = require('path');
+
+const app = module.exports = new Logoran();
 
 // log requests
 
@@ -46,6 +47,4 @@ app.use(async function(ctx, next) {
 });
 
 // listen
-
-app.listen(3000);
-console.log('listening on port 3000');
+if (!module.parent) app.listen(3000);
